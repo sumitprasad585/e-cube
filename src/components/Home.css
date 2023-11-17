@@ -1,5 +1,6 @@
 .Home {
-  
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
 .Home-navbar {
@@ -52,4 +53,9 @@
   gap: 2em;
   width: 60%;
   margin: 2em auto;
+}
+
+.Home-carousel {
+  background-color: #fff;
+  margin-top: 0.25em;
 }

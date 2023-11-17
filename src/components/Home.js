@@ -4,11 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getLatestMovies, getNearbyEvents, getUpcomingMovies } from '../actions/moviesActions';
 import Movie from './Movie';
+import Carousel from './ui/Carousel';
 
 const Home = () => {
   const movies = useSelector(state => state.movies);
   const { loading, error } = useSelector(state => state.movies);
-  const { latestMovies, upcomingMovies } = movies;
+  const { latestMovies, upcomingMovies, nearbyEvents } = movies;
+  let latestMoviesImages = latestMovies.map(current => current.imageUrl);
+  let upcomingMoviesImages = upcomingMovies.map(current => current.imageUrl);
+  let nearbyEventsImages = nearbyEvents.map(current => current.imageUrl);
+  const carouselImages = [...nearbyEventsImages, ...upcomingMoviesImages, ...latestMoviesImages];
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,6 +34,9 @@ const Home = () => {
           <li className="Navbar-list-item"><Link to="/upcoming-movies">Upcoming Movies</Link></li>
           <li className="Navbar-list-item"><Link to="/nearby-events">Nearby Events</Link></li>
         </ul>
+      </div>
+      <div className="Home-carousel">
+        <Carousel imgArr={carouselImages} />
       </div>
       <div className="Home-recommended-section">
         <header>
