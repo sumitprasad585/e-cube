@@ -11,3 +11,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 3em;
 }
+
+.NearbyEvents-actions {
+  width: 50%;
+  margin: 0 auto;
+}

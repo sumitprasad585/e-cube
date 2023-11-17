@@ -3,15 +3,21 @@ import './NearbyEvents.css';
 import { useEffect } from 'react';
 import { getNearbyEvents } from '../actions/moviesActions';
 import Movie from './Movie';
+import { useNavigate } from 'react-router-dom';
 
 const NearbyEvents = () => {
   const events = useSelector(state => state.movies.nearbyEvents);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (events && events.length === 0) 
       dispatch(getNearbyEvents());
   }, [dispatch]);
+
+  const handleBack = (e) => {
+    navigate('/');
+  }
 
   return (
     <div className="NearbyEvents">
@@ -25,6 +31,9 @@ const NearbyEvents = () => {
             return <Movie key={current._id} {...current} />
           })
         }
+      </div>
+      <div className="NearbyEvents-actions">
+        <button onClick={handleBack} className="navigation-button">Go Back</button>
       </div>
     </div>
   );
