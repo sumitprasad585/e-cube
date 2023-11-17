@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const UpcomingMovies = () => {
   const movies = useSelector(state => state.movies.upcomingMovies);
+  const { loading, error } = useSelector(state => state.movies);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -17,6 +18,14 @@ const UpcomingMovies = () => {
 
   const handleBack = (e) => {
     navigate('/');
+  }
+
+  if (loading) {
+    return <h1 className="loading">Loading upcoming movies...</h1>
+  }
+
+  if (!loading && error) {
+    return <h1 className="error">{error.name}:{error.message}</h1>
   }
 
   return (

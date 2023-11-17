@@ -7,16 +7,25 @@ import { useNavigate } from 'react-router-dom';
 
 const NearbyEvents = () => {
   const events = useSelector(state => state.movies.nearbyEvents);
+  const { loading, error } = useSelector(state => state.movies);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (events && events.length === 0) 
       dispatch(getNearbyEvents());
-  }, [dispatch]);
+  }, [dispatch, events]);
 
   const handleBack = (e) => {
     navigate('/');
+  }
+
+  if (loading) {
+    return <h1 className="loading">Loading nearby events...</h1>
+  }
+
+  if (!loading && error) {
+    return <h1 className="error">{error.name}:{error.message}</h1>
   }
 
   return (

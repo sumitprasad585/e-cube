@@ -6,6 +6,7 @@ import { getMovieDetails } from '../actions/moviesActions';
 
 const MovieDetails = () => {
   const movieDetails = useSelector(state => state.movies.movieDetails);
+  const { loading, error } = useSelector(state => state.movies);
   const dispatch = useDispatch();
   const params = useParams();
   const navigate = useNavigate();
@@ -14,12 +15,20 @@ const MovieDetails = () => {
     dispatch(getMovieDetails(params.id));
   }, [dispatch, params]);
 
-  const handleBook = (e) => {
-    navigate(`/ticket-booking/${params.id}`);
+  const handleBook = (movie) => {
+    navigate(`/ticket-booking/${params.id}`, { state: {movie}});
   }
 
   const handleBack = (e) => {
     navigate('/latest-movies');
+  }
+
+  if (loading) {
+    return <h1 className="loading">Loading movie details....</h1>
+  }
+
+  if (!loading && error) {
+    return <h1 className="error">{error.name}:{error.message}</h1>
   }
 
   if (movieDetails && movieDetails[0]) {
@@ -37,7 +46,7 @@ const MovieDetails = () => {
           <div>Ratings: <span className="">&nbsp;{rate} ★</span></div>
         </div>
         <div className="MovieDetails-actions">
-          <button onClick={handleBook}>Book Now</button>
+          <button onClick={e => handleBook(movie)}>Book Now</button>
           <button onClick={handleBack} className="navigation-button">Go Back</button>
         </div>
       </div>

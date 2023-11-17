@@ -1,0 +1,27 @@
+.FinalBooking { 
+  width: 50%;
+  margin: 3em auto;
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+}
+
+.FinalBooking-message {
+  grid-column: 1/3;
+  margin: 1em 0;
+}
+
+.FinalBooking-qr-container {
+
+}
+
+.FinalBooking-info-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.FinalBooking-info-container > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+}

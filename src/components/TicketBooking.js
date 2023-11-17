@@ -1,5 +1,5 @@
 import './TicketBooking.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 
 const TicketBooking = () => {
@@ -12,6 +12,8 @@ const TicketBooking = () => {
   const seatOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const params = useParams();
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const { movie } = state;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,7 +49,7 @@ const TicketBooking = () => {
       return;
     }
     
-    navigate(`/final-booking/${params.id}`);
+    navigate(`/final-booking/${params.id}`, { state: { date, timing, seats, movie }});
   }
 
   const handleBack = (e) => {

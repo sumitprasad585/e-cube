@@ -1,13 +1,13 @@
 import './Home.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getLatestMovies, getNearbyEvents, getUpcomingMovies } from '../actions/moviesActions';
 import Movie from './Movie';
 
-const Home = (props) => {
-  console.log('render');
+const Home = () => {
   const movies = useSelector(state => state.movies);
+  const { loading, error } = useSelector(state => state.movies);
   const { latestMovies, upcomingMovies } = movies;
   const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ const Home = (props) => {
       dispatch(getUpcomingMovies());
 
     dispatch(getNearbyEvents());
-  }, [dispatch]);
+  }, [dispatch, latestMovies.length, upcomingMovies.length]);
 
   return (
     <div className="Home">
@@ -35,8 +35,10 @@ const Home = (props) => {
           <h1>Recommended Movies</h1>
         </header>
         <main className="Home-recommended-movies">
+          { loading && <h1 className="loading">Loading Recommended Movies...</h1>}
+          { !loading && error && <h1 className="error">{error.name}:{error.message}</h1>}
           {
-            latestMovies && latestMovies.length > 0 && 
+            !loading && latestMovies && latestMovies.length > 0 && 
             latestMovies.map((current) => {
               return <Movie key={current._id} {...current} allowBooking />
             })

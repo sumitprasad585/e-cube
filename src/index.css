@@ -25,3 +25,13 @@ body {
   margin: 1em 0;
   border: none;
 }
+
+.loading {
+  margin: 1em 0;
+  font-weight: 400;
+}
+
+.error {
+  color: #f00;
+  margin: 1em 0;
+}

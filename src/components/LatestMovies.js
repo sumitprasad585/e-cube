@@ -7,16 +7,25 @@ import { useNavigate } from 'react-router-dom';
 
 const LatestMovies = () => {
   const movies = useSelector(state => state.movies.latestMovies);
+  const { loading, error } = useSelector(state => state.movies);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (movies && movies.length === 0)
       dispatch(getLatestMovies());
-  }, [dispatch]);
+  }, [dispatch, movies]);
 
   const handleBack = (e) => {
     navigate('/');
+  }
+
+  if (loading) {
+    return <h1 className="loading">Loading latest movies...</h1>
+  }
+
+  if (!loading && error) {
+    return <h1 className="error">{error.name}:{error.message}</h1>
   }
 
   return (
