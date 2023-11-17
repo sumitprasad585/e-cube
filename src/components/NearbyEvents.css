@@ -1,0 +1,13 @@
+.NearbyEvents h1 {
+  text-align: center;
+  margin: 1em 0;
+  font-weight: 400;
+}
+
+.NearbyEvents-events {
+  width: 50%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3em;
+}

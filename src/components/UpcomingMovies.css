@@ -1,0 +1,13 @@
+.UpcomingMovies h1 {
+  font-weight: 400;
+  text-align: center;
+  margin: 1em 0;
+}
+
+.UpcomingMovies-movies {
+  width: 50%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3em;
+}

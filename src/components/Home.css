@@ -1,0 +1,55 @@
+.Home {
+  
+}
+
+.Home-navbar {
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.Navbar-list {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1em;
+  height: 100%;
+}
+
+.Home-navbar a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.1em;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  border: 0.5px dashed #fff;
+  border-top: none;
+}
+
+.Home-navbar a:hover {
+  background-color: #ff477e;
+}
+
+.Home-recommended-section h1 {
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #ccc;
+  margin: 1em 0;
+}
+
+.Home-recommended-movies {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2em;
+  width: 60%;
+  margin: 2em auto;
+}
