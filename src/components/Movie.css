@@ -4,7 +4,7 @@
   position: relative; 
   box-shadow: 0 0 1em -0.4em #fff; 
   transition: transform 300ms linear, box-shadow 500ms linear;
-  padding-bottom: 1em;
+  padding-bottom: 2em;
 }
 
 .Movie:hover{
@@ -57,4 +57,13 @@
   border: 1px solid white;
   margin-right: 0.2em;
   padding: 0.25em 0.75em;
+}
+
+.Movie-actions button {
+  width: 100%;
+  background: #ff477e;
+  border: none;
+  font-size: 1em;
+  padding: 1em 0;
+  cursor: pointer;
 }

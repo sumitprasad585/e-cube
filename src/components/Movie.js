@@ -22,6 +22,12 @@ const Movie = (props) => {
           </div>
         </div>
       </div>
+      {
+        allowBooking &&
+        <div className="Movie-actions">
+            <button>Book</button>
+        </div>
+      }
     </div>
   );
 };
