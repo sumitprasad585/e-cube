@@ -1,16 +1,24 @@
+import { useNavigate } from 'react-router-dom';
 import './Movie.css';
 
 const Movie = (props) => {
-  const { name, language, type, rate, imageUrl, allowBooking = false } = props;
+  const { _id, name, language, type, rate, imageUrl, allowBooking = false } = props;
   const types = type.split(' ');
+  const navigate = useNavigate();
+  
+  const handleClick = (e) => {
+    if (allowBooking)
+      navigate(`/movie-details/${_id}`);
+  }
+
   return (
-    <div className="Movie">
+    <div onClick={handleClick} className="Movie">
       <img src={imageUrl} alt={name} />
       <div className="Movie-brief">
         <div className="Movie-brief-container">
           <div className="Movie-brief-left">
             <h1 className="Movie-title">{name}</h1>
-              <div className="Movie-type">
+            <div className="Movie-type">
               {types && types.length > 0 &&
               types.map((current, index) => {
                 return <span key={index}>{current}</span>

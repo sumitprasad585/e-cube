@@ -23,12 +23,22 @@
 
 .Movie-brief-container{
   width: 95%;
-  margin: 0.25em auto 0 auto;
+  margin: 0.5em auto;
   display: flex;
 }
 
 .Movie-brief-left {
-  width: 80%;
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.Movie-brief-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .Movie-brief h1, 
@@ -37,7 +47,7 @@
 }
 
 .Movie-brief .Movie-brief-left h1{
-  font-size: 1.25em;
+  font-size: 1.5em;
   margin: 0 0 0.1em 0;
   text-align: left;
 }
@@ -57,6 +67,7 @@
   border: 1px solid white;
   margin-right: 0.2em;
   padding: 0.25em 0.75em;
+  display: inline-block;
 }
 
 .Movie-actions button {

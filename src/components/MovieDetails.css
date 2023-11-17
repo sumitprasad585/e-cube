@@ -1,0 +1,48 @@
+.MovieDetails {
+  display: grid;
+  grid-template-columns: 4fr 7fr;
+  width: 50%;
+  margin: 2em auto;
+}
+
+.MovieDetails-img-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.MovieDetails-img-container img {
+  width: 100%;
+  height: 300px;
+}
+
+.MovieDetails-info-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.MovieDetails-info-container > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  letter-spacing: 2px;
+  font-size: 1.25em;
+  color: #ddd;
+}
+
+.MovieDetails-actions {
+  grid-column: 1/3;
+}
+
+.MovieDetails-actions button {
+  width: 100%;
+  background-color: #ff477e;
+  padding: 1em;
+  font-size: 1.1em;
+  cursor: pointer;
+  border: none;
+}
+
+.MovieDetails-actions .navigation-button {
+  width: 25%;
+}
