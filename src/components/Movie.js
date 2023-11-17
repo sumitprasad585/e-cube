@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './Movie.css';
 
 const Movie = (props) => {
-  const { _id, name, language, type, rate, imageUrl, allowBooking = false } = props;
+  const { _id, name, type, rate, imageUrl, allowBooking = false } = props;
   const types = type.split(' ');
   const navigate = useNavigate();
   

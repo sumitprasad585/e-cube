@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import './MovieDetails.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getMovieDetails } from '../actions/moviesActions';
 
 const MovieDetails = () => {
@@ -12,10 +12,10 @@ const MovieDetails = () => {
 
   useEffect(() => {
     dispatch(getMovieDetails(params.id));
-  }, [dispatch]);
+  }, [dispatch, params]);
 
   const handleBook = (e) => {
-    
+    navigate(`/ticket-booking/${params.id}`);
   }
 
   const handleBack = (e) => {
@@ -24,7 +24,7 @@ const MovieDetails = () => {
 
   if (movieDetails && movieDetails[0]) {
     const movie = movieDetails[0];
-    const { _id, name, lanuage, rate, type, imageUrl } = movie;
+    const { name, rate, imageUrl } = movie;
     return (
       <div className="MovieDetails">
         <div className="MovieDetails-img-container">

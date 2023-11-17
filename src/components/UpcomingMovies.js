@@ -13,7 +13,7 @@ const UpcomingMovies = () => {
   useEffect(() => {
     if (movies && movies.length === 0)
       dispatch(getUpcomingMovies());
-  }, [dispatch]);
+  }, [dispatch, movies]);
 
   const handleBack = (e) => {
     navigate('/');

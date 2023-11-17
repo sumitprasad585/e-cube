@@ -5,6 +5,8 @@ import LatestMovies from './components/LatestMovies';
 import UpcomingMovies from './components/UpcomingMovies';
 import NearbyEvents from './components/NearbyEvents';
 import MovieDetails from './components/MovieDetails';
+import TicketBooking from './components/TicketBooking';
+import FinalBooking from './components/FinalBooking';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/upcoming-movies" element={<UpcomingMovies />} />
         <Route path="/nearby-events" element={<NearbyEvents />} />
         <Route path="/movie-details/:id" element={<MovieDetails />} />
+        <Route path="/ticket-booking/:id" element={<TicketBooking />} />
+        <Route path="/final-booking/:id" element={<FinalBooking />} />
       </Routes>
     </div>
   );
