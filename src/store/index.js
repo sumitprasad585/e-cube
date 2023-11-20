@@ -1,11 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
 import moviesReducer from './../reducers/moviesSlice';
 
-const rootReducer = {
+const rootReducer = combineReducers({
   movies: moviesReducer
-}
+})
 
 const store = configureStore({
   reducer: rootReducer,
