@@ -20,19 +20,15 @@ const LatestMovies = () => {
     navigate('/');
   }
 
-  if (loading) {
-    return <h1 className="loading">Loading latest movies...</h1>
-  }
-
-  if (!loading && error) {
-    return <h1 className="error">{error.name}:{error.message}</h1>
-  }
-
   return (
     <div className="LatestMovies">
       <header>
         <h1>Latest Movies</h1>
       </header>
+      <>
+        { loading && <h1 className="loading">Loading latest movies...</h1> }
+        { !loading && error && <h1 className="error">{error.name}:{error.message}</h1> }
+      </>
       <div className="LatestMovies-movies">
         {
           movies && movies.length > 0 &&

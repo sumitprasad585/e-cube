@@ -20,19 +20,15 @@ const NearbyEvents = () => {
     navigate('/');
   }
 
-  if (loading) {
-    return <h1 className="loading">Loading nearby events...</h1>
-  }
-
-  if (!loading && error) {
-    return <h1 className="error">{error.name}:{error.message}</h1>
-  }
-
   return (
     <div className="NearbyEvents">
       <header>
         <h1>Nearby Events</h1>
       </header>
+      <>
+        { loading && <h1 className="loading">Loading nearby events...</h1> }
+        { !loading && error && <h1 className="error">{error.name}:{error.message}</h1> }
+      </>
       <div className="NearbyEvents-events">
         {
           events && events.length > 0 && 

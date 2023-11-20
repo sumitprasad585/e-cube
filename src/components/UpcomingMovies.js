@@ -20,19 +20,15 @@ const UpcomingMovies = () => {
     navigate('/');
   }
 
-  if (loading) {
-    return <h1 className="loading">Loading upcoming movies...</h1>
-  }
-
-  if (!loading && error) {
-    return <h1 className="error">{error.name}:{error.message}</h1>
-  }
-
   return (
     <div className="UpcomingMovies">
       <header>
         <h1>Upcoming Movies</h1>
       </header>
+      <>
+        { loading && <h1 className="loading">Loading upcoming movies...</h1> }
+        { !loading && error && <h1 className="error">{error.name}:{error.message}</h1> }
+      </>
       <div className="UpcomingMovies-movies">
         {
           movies && movies.length > 0 && 
